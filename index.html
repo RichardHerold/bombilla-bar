@@ -139,10 +139,7 @@
 
             <!-- Desktop Menu -->
             <div class="hidden md:flex items-center gap-10 font-heading text-sm font-medium tracking-wide text-bombilla-dark/80">
-                <a href="#about" class="hover:text-bombilla-sage transition-colors">Origins</a>
                 <a href="#menu" class="hover:text-bombilla-sage transition-colors">Menu</a>
-                <a href="#shop" class="hover:text-bombilla-sage transition-colors">Shop</a>
-                <a href="#visit" class="px-6 py-2 border border-bombilla-dark/20 rounded-full hover:bg-bombilla-dark hover:text-bombilla-bg transition-all">Visit Us</a>
             </div>
 
             <!-- Mobile Menu Button -->
@@ -153,10 +150,7 @@
         
         <!-- Mobile Menu Overlay -->
         <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-bombilla-bg border-b border-bombilla-dark/10 p-6 flex flex-col gap-4 shadow-lg md:hidden">
-            <a href="#about" class="text-lg font-heading">Origins</a>
             <a href="#menu" class="text-lg font-heading">Menu</a>
-            <a href="#shop" class="text-lg font-heading">Shop</a>
-            <a href="#visit" class="text-lg font-heading font-bold text-bombilla-sage">Visit Us</a>
         </div>
     </nav>
 
@@ -167,20 +161,17 @@
         <div class="absolute bottom-1/3 right-10 w-80 h-80 bg-bombilla-gold/10 rounded-full blur-3xl -z-10"></div>
 
         <div class="text-center max-w-4xl mx-auto z-10 fade-in-up" style="animation-delay: 0.1s;">
-            <div class="inline-block mb-6">
-                <span class="font-heading text-xs tracking-[0.3em] uppercase text-bombilla-brown border-b border-bombilla-brown pb-1">Established 2024</span>
-            </div>
             <h1 class="font-heading text-5xl md:text-7xl lg:text-8xl font-light text-bombilla-dark mb-8 leading-tight">
-                Ritual in <br/>
-                <span class="font-serif italic text-bombilla-sage font-medium">Every Sip</span>
+                Precision Brewed. <span class="font-serif italic text-bombilla-sage font-medium">Transparently Sourced</span>
             </h1>
             <p class="text-lg md:text-xl text-bombilla-dark/70 max-w-2xl mx-auto mb-12 leading-relaxed font-light">
-                An organic sanctuary dedicated to the art of Yerba Mate. Reconnecting with nature, community, and self through the ancient ceremony of the bombilla.
+                Experience single-origin mate, aged to perfection and brewed with exactitude.
             </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#menu" class="font-heading bg-bombilla-dark text-bombilla-bg px-8 py-4 rounded-sm text-sm tracking-widest uppercase hover:bg-bombilla-sage transition-colors duration-300">View Menu</a>
-                <a href="#about" class="font-heading border border-bombilla-dark text-bombilla-dark px-8 py-4 rounded-sm text-sm tracking-widest uppercase hover:bg-bombilla-dark hover:text-bombilla-bg transition-colors duration-300">Our Story</a>
-            </div>
+            <form id="launch-signup" class="mx-auto flex w-full max-w-xl flex-col gap-3 sm:flex-row" autocomplete="off">
+                <input type="email" name="email" required placeholder="Email to get launch updates" class="flex-1 rounded-sm border border-bombilla-dark/30 bg-white/80 px-5 py-4 font-heading text-sm uppercase tracking-[0.2em] text-bombilla-dark placeholder:text-bombilla-dark/40 focus:border-bombilla-sage focus:outline-none focus:ring-1 focus:ring-bombilla-sage">
+                <button type="submit" class="font-heading rounded-sm bg-bombilla-dark px-8 py-4 text-sm uppercase tracking-widest text-bombilla-bg transition-colors duration-300 hover:bg-bombilla-sage">Notify Me</button>
+            </form>
+            <p id="signup-message" class="mt-4 text-sm font-heading uppercase tracking-[0.2em] text-bombilla-dark/70 hidden">Thanks! We'll let you know when Bombilla Bar opens.</p>
         </div>
     </header>
 
@@ -208,10 +199,20 @@
         }
     </style>
 
-    <!-- About Section -->
-    <section id="about" class="py-24 px-6 md:px-12 bg-white/40">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-            <div class="relative order-2 md:order-1">
-                <div class="aspect-[4/5] bg-gray-200 rounded-sm overflow-hidden relative group">
-                    <!-- Placeholder for lifestyle image (e.g. pouring mate) -->
-                    <div class="absolute inset-0
+    <script>
+        if (window.lucide) {
+            window.lucide.createIcons();
+        }
+
+        const signupForm = document.getElementById('launch-signup');
+        const signupMessage = document.getElementById('signup-message');
+        if (signupForm && signupMessage) {
+            signupForm.addEventListener('submit', (event) => {
+                event.preventDefault();
+                signupMessage.classList.remove('hidden');
+                signupForm.reset();
+            });
+        }
+    </script>
+</body>
+</html>
